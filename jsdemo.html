@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      DOM Methods Demonstration
+    </title>
+    <style>
+      header{
+        background-color: #2c3e50;
+        color:white;
+        text-align:center;
+        padding: 20px;
+      }
+       
+      .cont {
+        width: 90%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+      main-heading {
+        color:blue;
+        margin:20px;
+        padding:10px;
+
+      }
+
+      button {
+        margin: 8px 5px;
+        padding: 10px 14px;
+        border: none;
+        background-color: #3498db;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+}
+      #output {
+        background-color: #1e1e1e;
+        color: #00ff90;
+        padding: 15px;
+        min-height: 80px;
+        border-radius: 8px;
+        margin-top: 20px;
+        white-space: pre-line;
+        font-family: Consolas, monospace;
+}
+      
+    </style>
+  </head>
+<body>
+  <header>
+    <h1>JavaScript DOM Selection Methods</h1>
+    <p>Single Page Demonstration</p>
+  </header>
+  <div class="cont">
+    <h2 id="main-heading">Online Course Registration</h2>
+    <p>
+      This page contains student cards, course names, paragraphs, and buttons.
+      Each button demonstrates one DOM selection method.
+    </p>
+  </div>
+
+  <h3>Student Details</h3>
+
+  <h3>Student 1</h3>
+  <p>Name:Ravi</p>
+  <p>Course:JavaScript</p>
+
+  <h3>Student 2</h3>
+  <p>Name:Priya</p>
+  <p>Course:Python</p>
+
+  <h3>Student 3</h3>
+  <p>Name:Aman</p>
+  <p>Course:Java</p>
+
+  <h3>Available Courses</h3>
+  <p>HTML</p>
+  <p>CSS</p>
+  <p>JavaScript</p>
+  <p>React</p>
+
+  <h3>DOM Method Buttons</h3>
+  <button onclick="demoGetElementById()">getElementById()</button>
+  <button onclick="getElementsByClassName()">getElementById()</button>
+  <button onclick="getElementsByTagName()">getElementById()</button>
+  <button onclick="querySection()">getElementById()</button>
+  <button onclick="querySectectorAll()">getElementById()</button>
+  <button onclick=""Reset"">getElementById()</button>
+
+  <h3>Output:</h3>
+  <div id="output">Click any button to see the result here.</div>
+
+</body>
+</html>
