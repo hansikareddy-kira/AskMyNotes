@@ -6,6 +6,13 @@
     </title>
 
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        margin: 0;
+        padding: 0;
+      }
+
       header{
         background-color: rgb(44, 62, 80);
         color:white;
@@ -73,6 +80,20 @@
         background-color: rgb(231, 76, 60);
       }
 
+      .course {
+        padding: 8px;
+        margin: 6px 0;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+     }
+
+     .important {
+        color: #c0392b;
+        font-weight: bold;
+     }
+
+
       
     </style>
   </head>
@@ -110,12 +131,15 @@
   <p>Name:Aman</p>
   <p>Course:Java</p>
   </div>
-
+  
+  <div class="std-title">
   <h3>Available Courses</h3>
-  <p>HTML</p>
-  <p>CSS</p>
-  <p>JavaScript</p>
-  <p>React</p>
+  </div>
+
+  <div class="course">HTML</div>
+  <div class="course important">CSS</div>
+  <div class="course">JavaScript</div>
+  <div class="course important">React</div>
   
   <div class="std-title">
   <h3>DOM Method Buttons</h3>
