@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+
+      .button{
+        width:100%;
+        padding:12px;
+        background:black;
+        color:white;
+        border:none;
+        border-radius:8px;
+        font-size:16px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+   
+      }
+
+      .input-section {
+        width:100%;
+        padding:12px;
+        border:1px solid #ccc;
+        border-radius:8px;
+        font-size:16px;
+        outline:none;
+        transition:0.3s;
+      }
+
+      .response{
+        margin-left: 12px;
+        margin-top: 10px;
+
+      }
+      
+      .container{
+      background:#fff;
+      width:400px;
+      padding:35px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+      }
+
+    </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+        <h1>FastAPI Feedback Form</h1>
+
+    <div class="input-section">
+    <input type="text" placeholder="Student Name"><br>
+    </div>
+     
+    <div class="input-section">
+    <input type="text" placeholder="Topic"><br>
+    </div>
+
+    <div class="input-section">
+    <input type="text" placeholder="Rating 1 to 5"><br>
+    </div>
+
+    <div class="input-section">
+    <input type="text" placeholder="Comment"><br>
+    </div>
+
+    <button class="button"> Submit Feedback</button>
+  
+    <div class="response"><h4>Response</h4></div>
+  </div>
+    
+  </header>
+  <script></script>
+</body>
+</html>
