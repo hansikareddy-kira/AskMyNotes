@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Feedback Form</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:400px;
+            background:#ffffff;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h1{
+            text-align:center;
+            color:#333;
+            margin-bottom:25px;
+        }
+
+        .input-section{
+            margin-bottom:18px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            font-size:16px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color: black;
+            box-shadow:0 0 5px rgba(76,175,80,0.4);
+        }
+
+        .button{
+            width:100%;
+            padding:12px;
+            border-radius:8px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+            cursor: pointer;
+            background-color: #222;
+            color: white;
+            border: none
+        }
+        
+        .response{
+            margin-top:20px;
+            padding:15px;
+            background:#f8f9fa;
+            border:1px solid #ddd;
+            border-radius:8px;
+            min-height:70px;
+        }
+
+        .response h4{
+            margin-bottom:10px;
+            color:#333;
+        }
+
+        #output{
+            white-space:pre-wrap;
+            color:#444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>FastAPI Feedback Form</h1>
+
+        <div class="input-section">
+            <input id="studentName" type="text" placeholder="Student Name">
+        </div>
+
+        <div class="input-section">
+            <input id="topic" type="text" placeholder="Topic">
+        </div>
+
+        <div class="input-section">
+            <input id="rating" type="number" placeholder="Rating (1 to 5)">
+        </div>
+
+        <div class="input-section">
+            <input id="comment" type="text" placeholder="Comment">
+        </div>
+
+        <button class="button" onclick="submitFeedback()">
+            Submit Feedback
+        </button>
+
+        <div class="response">
+            <h4>Response</h4>
+            <pre id="output"></pre>
+        </div>
+
+    </div>
+
+    <script>
+        async function submitFeedback() {
+
+            const feedbackData = {
+                student_name: document.getElementById("studentName").value,
+                topic: document.getElementById("topic").value,
+                rating: Number(document.getElementById("rating").value),
+                comment: document.getElementById("comment").value
+            };
+
+            try {
+
+                const response = await fetch("http://127.0.0.1:8000/feedback", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(feedbackData)
+                });
+
+                const result = await response.json();
+
+                document.getElementById("output").textContent =
+                    "Status Code: " + response.status + "\n\n" +
+                    JSON.stringify(result, null, 2);
+
+            } catch (error) {
+
+                document.getElementById("output").textContent =
+                    "Error: " + error.message;
+
+            }
+        }
+    </script>
+
+</body>
+</html>

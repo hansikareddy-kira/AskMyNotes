@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      DOM Methods Demonstration
+    </title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      header{
+        background-color: rgb(44, 62, 80);
+        color:white;
+        text-align:center;
+        padding: 20px;
+      }
+       
+      .cont {
+        width: 90%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+
+      #main-heading {
+        color:blue;
+        margin:20px;
+        padding:10px;
+
+      }
+
+      button {
+        margin: 8px 5px;
+        padding: 10px 14px;
+        border: none;
+        background-color: rgb(52, 152, 219);
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      #output {
+        background-color: rgb(30, 30, 30);
+        color: rgb(0, 255, 144);
+        padding: 15px;
+        min-height: 80px;
+        border-radius: 8px;
+        margin-top: 20px;
+        white-space: pre-line;
+        font-family: Consolas, monospace;
+      }
+
+      .std-box {
+        background-color: rgb(236, 240, 241);
+        padding: 15px;
+        margin: 5px;
+        border-radius: 8px;
+        border-left: 5px solid rgb(149, 165, 166);
+
+      }
+
+      .std-title {
+        background-color: rgb(232, 240, 254) ;
+        margin:20px;
+        border-left: 5px solid rgb(52, 152, 219);
+        padding: 10px;
+      }
+
+      .reset-btn {
+        background-color: rgb(231, 76, 60);
+      }
+
+      .course {
+        padding: 8px;
+        margin: 6px 0;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+     }
+
+     .important {
+        color: #c0392b;
+        font-weight: bold;
+     }
+
+
+      
+    </style>
+  </head>
+<body>
+  <header>
+    <h1>JavaScript DOM Selection Methods</h1>
+    <p>Single Page Demonstration</p>
+  </header>
+  <div class="cont">
+    <h2 id="main-heading">Online Course Registration</h2>
+    <p>
+      This page contains student cards, course names, paragraphs, and buttons.
+      Each button demonstrates one DOM selection method.
+    </p>
+  </div>
+  
+  <div class="std-title">
+  <h3>Student Details</h3>
+  </div>
+
+  <div class="std-box">
+  <h3>Student 1</h3>
+  <p>Name:Ravi</p>
+  <p>Course:JavaScript</p>
+  </div>
+
+  <div class="std-box">
+  <h3>Student 2</h3>
+  <p>Name:Priya</p>
+  <p>Course:Python</p>
+  </div>
+
+  <div class="std-box">
+  <h3>Student 3</h3>
+  <p>Name:Aman</p>
+  <p>Course:Java</p>
+  </div>
+  
+  <div class="std-title">
+  <h3>Available Courses</h3>
+  </div>
+
+  <div class="course">HTML</div>
+  <div class="course important">CSS</div>
+  <div class="course">JavaScript</div>
+  <div class="course important">React</div>
+  
+  <div class="std-title">
+  <h3>DOM Method Buttons</h3>
+  </div>
+
+  <button onclick="demoGetElementById()">getElementById()</button>
+  <button onclick="demoGetElementsByClassName()">getElementsByClassName()</button>
+  <button onclick="demoGetElementsByTagName()">getElementsByTagName()</button>
+  <button onclick="demoQuerySelector()">querySelector()</button>
+  <button onclick="demoQuerySelectorAll()">querySelectorAll()</button>
+  <button class="reset-btn" onclick="resetPage()">Reset</button>
+
+  <h3>Output:</h3>
+  <div id="output">Click any button to see the result here.</div>
+  
+<script>
+
+  function showOutput(message) {
+    document.getElementById("output").innerText = message;
+}
+
+function demoGetElementById() {
+
+    let heading = document.getElementById("main-heading");
+
+    heading.style.backgroundColor = "#d1ecf1";
+    heading.style.color = "#0c5460";
+    heading.style.border = "3px solid #17a2b8";
+
+    showOutput(
+        "Method: getElementById()\n\n" +
+        "Selected Element: main-heading\n" +
+        "This method selects one element using its unique ID."
+    );
+}
+
+function demoGetElementsByClassName() {
+
+    let students = document.getElementsByClassName("student-card");
+
+    for (let i = 0; i < students.length; i++) {
+        students[i].style.backgroundColor = "#fff3cd";
+        students[i].style.borderLeft = "6px solid orange";
+    }
+
+    showOutput(
+        "Method: getElementsByClassName()\n\n" +
+        "Class Selected: student-card\n" +
+        "Number of elements: " + students.length
+    );
+}
+
+function demoGetElementsByTagName() {
+
+    let paragraphs = document.getElementsByTagName("p");
+
+    for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.color = "green";
+        paragraphs[i].style.fontWeight = "bold";
+    }
+
+    showOutput(
+        "Method: getElementsByTagName()\n\n" +
+        "Tag Selected: p\n" +
+        "Number of paragraphs: " + paragraphs.length
+    );
+}
+
+function demoQuerySelector() {
+
+    let firstCourse = document.querySelector(".important");
+
+    firstCourse.style.backgroundColor = "#f8d7da";
+    firstCourse.style.border = "2px solid red";
+
+    showOutput(
+        "Method: querySelector()\n\n" +
+        "Selector Used: .important\n" +
+        "Only the first matching element is selected."
+    );
+}
+
+function demoQuerySelectorAll() {
+
+    let courses = document.querySelectorAll(".important");
+
+    courses.forEach(function(course) {
+        course.style.backgroundColor = "#d4edda";
+        course.style.border = "2px solid green";
+        course.style.padding = "10px";
+    });
+
+    showOutput(
+        "Method: querySelectorAll()\n\n" +
+        "Selector Used: .important\n" +
+        "Number of matching elements: " + courses.length
+    );
+}
+
+function resetPage() {
+    location.reload();
+}
+
+
+</script>
+  
+  
+</body>
+</html>
